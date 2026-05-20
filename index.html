@@ -418,7 +418,7 @@
             <img src="assets/logo.jpg" alt="Farming Friends Logo" class="logo">
             <h1>Game Design Document</h1>
             <p class="subtitle">Mobile Farming Multiplayer Game</p>
-            <p class="version">Version 1.0 — Mai 2026<br>Plattform: iOS (später Android)</p>
+            <p class="version">Version 1.2 — Mai 2026<br>Plattform: iOS (später Android)</p>
         </div>
         
         <!-- 1. EXECUTIVE SUMMARY -->
@@ -431,7 +431,7 @@
             <table>
                 <tr><th style="width:30%">Element</th><th>Details</th></tr>
                 <tr><td><strong>Titel</strong></td><td>Farming Friends</td></tr>
-                <tr><td><strong>Genre</strong></td><td>Farming Simulation + Social Multiplayer</td></tr>
+                <tr><td><strong>Genre</strong></td><td>Farming + Crafting + Social Multiplayer</td></tr>
                 <tr><td><strong>Perspektive</strong></td><td>3D Third-Person (Roblox-Style Movement)</td></tr>
                 <tr><td><strong>Art Style</strong></td><td>Low-Poly 3D, bunt & freundlich (Hay Day Ästhetik)</td></tr>
                 <tr><td><strong>Plattform</strong></td><td>iOS (primär), Android (später)</td></tr>
@@ -441,7 +441,7 @@
             </table>
             
             <div class="pitch-box">
-                <p>"Baue deine eigene Farm auf, besuche Freunde, helft euch gegenseitig und werde zum erfolgreichsten Farmer der großen Ernte-Meisterschaft!"</p>
+                <p>"Baue deine Farm, fälle Bäume, schürfe Erze, crafte Gebäude, besuche Freunde und werde Meister-Farmer!"</p>
             </div>
         </div>
         
@@ -483,8 +483,8 @@
                 <div class="flow-step">
                     <div class="flow-number">1</div>
                     <div class="flow-content">
-                        <span class="flow-title">ANBAUEN</span>
-                        <span class="flow-desc"> — Felder anlegen → Samen pflanzen → Warten</span>
+                        <span class="flow-title">SAMMELN</span>
+                        <span class="flow-desc"> — Bäume fällen, Steine/Erze abbauen, Pflanzen anbauen</span>
                     </div>
                 </div>
                 <div class="flow-step">
@@ -497,22 +497,22 @@
                 <div class="flow-step">
                     <div class="flow-number">3</div>
                     <div class="flow-content">
-                        <span class="flow-title">PRODUZIEREN</span>
-                        <span class="flow-desc"> — Rohstoffe → Verarbeitung → Produkte</span>
+                        <span class="flow-title">CRAFTEN</span>
+                        <span class="flow-desc"> — Holz/Stein/Eisen → Gebäude, Tools, Items</span>
                     </div>
                 </div>
                 <div class="flow-step">
                     <div class="flow-number">4</div>
                     <div class="flow-content">
-                        <span class="flow-title">VERKAUFEN</span>
-                        <span class="flow-desc"> — Warenhaus → NPC-Aufträge → Spieler-Handel</span>
+                        <span class="flow-title">PRODUZIEREN</span>
+                        <span class="flow-desc"> — Rohstoffe → Verarbeitung → Produkte verkaufen</span>
                     </div>
                 </div>
                 <div class="flow-step">
                     <div class="flow-number">5</div>
                     <div class="flow-content">
-                        <span class="flow-title">INVESTIEREN</span>
-                        <span class="flow-desc"> — Geld → Bessere Tools → Größere Farm → Repeat!</span>
+                        <span class="flow-title">ERWEITERN</span>
+                        <span class="flow-desc"> — Bessere Tools → Neue Gebiete → Größere Farm!</span>
                     </div>
                 </div>
             </div>
@@ -604,10 +604,86 @@
             </div>
         </div>
         
-        <!-- 6. HELFER SYSTEM -->
+        <!-- 6. RESSOURCEN & CRAFTING -->
         <div class="section">
             <div class="section-header">
                 <div class="section-number">6</div>
+                <h2>Ressourcen & Crafting</h2>
+            </div>
+            
+            <p>Neben Farming gibt es auch <strong>Resource Gathering</strong> wie in Minecraft — Bäume fällen, Steine abbauen, Erze schürfen!</p>
+            
+            <h3>6.1 Ressourcen sammeln</h3>
+            <table>
+                <tr><th>Ressource</th><th>Quelle</th><th>Tool</th><th>Respawn</th></tr>
+                <tr><td>🪵 Holz</td><td>Bäume fällen</td><td>Axt</td><td>24h</td></tr>
+                <tr><td>🪨 Stein</td><td>Felsen abbauen</td><td>Spitzhacke</td><td>48h</td></tr>
+                <tr><td>🔩 Eisenerz</td><td>Erz-Adern</td><td>Spitzhacke Lvl 2</td><td>72h</td></tr>
+                <tr><td>💎 Seltene Erze</td><td>Tiefe Minen</td><td>Spitzhacke Lvl 3</td><td>1 Woche</td></tr>
+                <tr><td>🌿 Fasern</td><td>Gras/Büsche</td><td>Hand/Sichel</td><td>12h</td></tr>
+            </table>
+            
+            <h3>6.2 Werkzeug-Upgrade</h3>
+            <table>
+                <tr><th>Tool</th><th>Material</th><th>Effizienz</th><th>Freischaltet</th></tr>
+                <tr><td>🪓 Holz-Axt</td><td>Start</td><td>Langsam</td><td>Normales Holz</td></tr>
+                <tr><td>🪓 Stein-Axt</td><td>20 Stein</td><td>Mittel</td><td>—</td></tr>
+                <tr><td>🪓 Eisen-Axt</td><td>10 Eisen</td><td>Schnell</td><td>Hartholz</td></tr>
+                <tr><td>⛏️ Holz-Hacke</td><td>Start</td><td>Langsam</td><td>Stein</td></tr>
+                <tr><td>⛏️ Stein-Hacke</td><td>20 Stein</td><td>Mittel</td><td>Eisenerz</td></tr>
+                <tr><td>⛏️ Eisen-Hacke</td><td>10 Eisen</td><td>Schnell</td><td>Seltene Erze</td></tr>
+            </table>
+            
+            <h3>6.3 Crafting — Gebäude & Items</h3>
+            <table>
+                <tr><th>Gebäude/Item</th><th>Ressourcen</th><th>Nutzen</th></tr>
+                <tr><td>🏠 Holzhütte</td><td>50 Holz</td><td>Lager +20 Slots</td></tr>
+                <tr><td>🏠 Steinhaus</td><td>30 Holz + 50 Stein</td><td>Lager +50 Slots</td></tr>
+                <tr><td>🔥 Schmelzofen</td><td>20 Stein + 5 Kohle</td><td>Erz → Barren</td></tr>
+                <tr><td>🛠️ Werkbank</td><td>30 Holz + 10 Stein</td><td>Erweiterte Rezepte</td></tr>
+                <tr><td>🚧 Zaun (10x)</td><td>20 Holz</td><td>Tiere einsperren</td></tr>
+                <tr><td>🌉 Brücke</td><td>40 Holz + 20 Stein</td><td>Neue Gebiete</td></tr>
+                <tr><td>⚒️ Amboss</td><td>30 Eisen + 10 Stein</td><td>Metall-Tools</td></tr>
+            </table>
+            
+            <h3>6.4 Verarbeitung</h3>
+            <div class="chain-table">
+                <div class="chain-row">
+                    <span class="chain-name">⚙️ EISEN:</span>
+                    <span class="chain-item">Eisenerz</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-item">Schmelzofen</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-result">Eisenbarren</span>
+                </div>
+                <div class="chain-row">
+                    <span class="chain-name">🪵 PLANKEN:</span>
+                    <span class="chain-item">Holz</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-item">Sägewerk</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-result">Holzplanken</span>
+                </div>
+                <div class="chain-row">
+                    <span class="chain-name">🧱 ZIEGEL:</span>
+                    <span class="chain-item">Lehm + Kohle</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-item">Brennofen</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-result">Ziegelsteine</span>
+                </div>
+            </div>
+            
+            <div class="feature-box">
+                <h4>🔄 Respawn-System</h4>
+                <p>Alle Ressourcen wachsen nach! Bäume nach 24h, Felsen nach 48h, Erze nach 72h. Spieler muss nachhaltig wirtschaften.</p>
+            </div>
+        </div>
+        
+        <!-- 7. HELFER SYSTEM -->
+        <div class="section">
+            <div class="section-header">
+                <div class="section-number">13</div>
                 <h2>Helfer-System (Bots)</h2>
             </div>
             
@@ -628,10 +704,10 @@
             </table>
         </div>
         
-        <!-- 7. HANDEL -->
+        <!-- 8. HANDEL -->
         <div class="section">
             <div class="section-header">
-                <div class="section-number">7</div>
+                <div class="section-number">13</div>
                 <h2>Handel & Wirtschaft</h2>
             </div>
             
@@ -653,10 +729,10 @@
             <p>Regelmäßig kommt ein LKW mit Sammelaufträgen. Vollständige Lieferung = Bonus!</p>
         </div>
         
-        <!-- 8. MULTIPLAYER -->
+        <!-- 9. MULTIPLAYER -->
         <div class="section">
             <div class="section-header">
-                <div class="section-number">8</div>
+                <div class="section-number">13</div>
                 <h2>Multiplayer & Social</h2>
             </div>
             
@@ -681,10 +757,10 @@
             </table>
         </div>
         
-        <!-- 9. MONETARISIERUNG -->
+        <!-- 10. MONETARISIERUNG -->
         <div class="section">
             <div class="section-header">
-                <div class="section-number">9</div>
+                <div class="section-number">13</div>
                 <h2>Monetarisierung</h2>
             </div>
             
@@ -717,10 +793,10 @@
             <p><strong>Season Pass (4,99€/Monat):</strong> Extra Belohnungen, exklusive Skins, keine Werbung</p>
         </div>
         
-        <!-- 10. CHARAKTERE -->
+        <!-- 11. CHARAKTERE -->
         <div class="section">
             <div class="section-header">
-                <div class="section-number">10</div>
+                <div class="section-number">13</div>
                 <h2>Spielbare Charaktere</h2>
             </div>
             
@@ -736,10 +812,10 @@
             </table>
         </div>
         
-        <!-- 11. CONCEPT ART -->
+        <!-- 12. CONCEPT ART -->
         <div class="section">
             <div class="section-header">
-                <div class="section-number">11</div>
+                <div class="section-number">13</div>
                 <h2>Concept Art</h2>
             </div>
             
@@ -795,10 +871,10 @@
             </div>
         </div>
         
-        <!-- 12. TECHNICAL -->
+        <!-- 13. TECHNICAL -->
         <div class="section">
             <div class="section-header">
-                <div class="section-number">12</div>
+                <div class="section-number">13</div>
                 <h2>Technik & Roadmap</h2>
             </div>
             
@@ -828,7 +904,7 @@
         <!-- FOOTER -->
         <div class="footer">
             <img src="assets/logo.jpg" alt="Farming Friends">
-            <p><strong>Farming Friends</strong> — Game Design Document v1.0<br>© 2026</p>
+            <p><strong>Farming Friends</strong> — Game Design Document v1.2<br>© 2026</p>
         </div>
         
     </div>
