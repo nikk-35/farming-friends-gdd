@@ -19,6 +19,43 @@
             --text-medium: #5D4037;
         }
         
+        /* Remove headers/footers in print */
+        @page {
+            margin: 15mm;
+            size: A4;
+        }
+        
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .section {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            table {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            .flowchart, .feature-box, .pitch-box, .gallery {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            
+            h2, h3, h4 {
+                page-break-after: avoid;
+                break-after: avoid;
+            }
+            
+            .cover {
+                page-break-after: always;
+            }
+        }
+        
         * {
             margin: 0;
             padding: 0;
@@ -29,118 +66,121 @@
             font-family: 'Nunito', sans-serif;
             background: var(--light-bg);
             color: var(--text-dark);
-            line-height: 1.6;
+            line-height: 1.5;
+            font-size: 11px;
         }
         
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 40px 20px;
+            padding: 20px 15px;
         }
         
         /* Cover Page */
         .cover {
             background: linear-gradient(135deg, var(--primary-green) 0%, var(--dark-green) 100%);
-            padding: 80px 40px;
-            border-radius: 24px;
+            padding: 50px 30px;
+            border-radius: 16px;
             text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 40px rgba(46, 125, 50, 0.3);
+            margin-bottom: 25px;
+            box-shadow: 0 8px 30px rgba(46, 125, 50, 0.3);
         }
         
         .cover img.logo {
-            max-width: 350px;
-            border-radius: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+            max-width: 280px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
         }
         
         .cover h1 {
             color: var(--white);
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         
         .cover .subtitle {
             color: var(--accent-yellow);
-            font-size: 1.3rem;
+            font-size: 1rem;
             font-weight: 600;
         }
         
         .cover .version {
             color: rgba(255,255,255,0.8);
-            margin-top: 30px;
-            font-size: 0.95rem;
+            margin-top: 20px;
+            font-size: 0.85rem;
         }
         
         /* Section Styling */
         .section {
             background: var(--white);
-            border-radius: 20px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-radius: 14px;
+            padding: 25px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.06);
         }
         
         .section-header {
             display: flex;
             align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 3px solid var(--accent-orange);
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-orange);
         }
         
         .section-number {
             background: var(--primary-green);
             color: var(--white);
-            width: 45px;
-            height: 45px;
-            border-radius: 12px;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            flex-shrink: 0;
         }
         
         .section h2 {
             color: var(--dark-green);
-            font-size: 1.6rem;
+            font-size: 1.2rem;
             font-weight: 700;
         }
         
         .section h3 {
             color: var(--primary-green);
-            font-size: 1.2rem;
+            font-size: 1rem;
             font-weight: 700;
-            margin: 25px 0 15px 0;
+            margin: 18px 0 10px 0;
         }
         
         .section h4 {
             color: var(--warm-brown);
-            font-size: 1rem;
+            font-size: 0.9rem;
             font-weight: 700;
-            margin: 20px 0 10px 0;
+            margin: 14px 0 8px 0;
         }
         
         p {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: var(--text-medium);
+            font-size: 11px;
         }
         
         /* Pitch Box */
         .pitch-box {
             background: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);
-            padding: 25px 30px;
-            border-radius: 16px;
-            margin: 20px 0;
+            padding: 18px 22px;
+            border-radius: 12px;
+            margin: 15px 0;
         }
         
         .pitch-box p {
             color: var(--text-dark);
-            font-size: 1.15rem;
+            font-size: 0.95rem;
             font-weight: 600;
             font-style: italic;
             margin: 0;
@@ -150,39 +190,42 @@
         table {
             width: 100%;
             border-collapse: collapse;
-            margin: 20px 0;
-            border-radius: 12px;
+            margin: 12px 0;
+            border-radius: 10px;
             overflow: hidden;
+            font-size: 10px;
         }
         
         th {
             background: var(--primary-green);
             color: var(--white);
-            padding: 14px 18px;
+            padding: 10px 12px;
             text-align: left;
             font-weight: 700;
+            font-size: 10px;
         }
         
         td {
-            padding: 12px 18px;
+            padding: 8px 12px;
             border-bottom: 1px solid #E8F5E9;
             color: var(--text-medium);
+            font-size: 10px;
         }
         
         tr:nth-child(even) {
             background: #F1F8E9;
         }
         
-        tr:hover {
-            background: #DCEDC8;
-        }
-        
         /* Image Gallery */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 25px 0;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 15px 0;
+        }
+        
+        .gallery-5 {
+            grid-template-columns: repeat(5, 1fr);
         }
         
         .gallery-item {
@@ -191,89 +234,179 @@
         
         .gallery-item img {
             width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .gallery-item img:hover {
-            transform: scale(1.03);
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         
         .gallery-item .caption {
-            margin-top: 10px;
+            margin-top: 6px;
             font-weight: 600;
             color: var(--dark-green);
-            font-size: 0.9rem;
+            font-size: 9px;
         }
         
         /* Feature Box */
         .feature-box {
             background: linear-gradient(135deg, #E8F5E9 0%, #C8E6C9 100%);
-            padding: 20px 25px;
-            border-radius: 14px;
-            margin: 15px 0;
-            border-left: 5px solid var(--primary-green);
+            padding: 14px 18px;
+            border-radius: 10px;
+            margin: 12px 0;
+            border-left: 4px solid var(--primary-green);
         }
         
         .feature-box h4 {
             color: var(--dark-green);
             margin-top: 0;
+            font-size: 0.85rem;
+        }
+        
+        .feature-box p {
+            margin-bottom: 0;
+            font-size: 10px;
         }
         
         /* List Styling */
         ul {
-            margin: 15px 0 15px 25px;
+            margin: 10px 0 10px 20px;
+            font-size: 10px;
         }
         
         li {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: var(--text-medium);
         }
         
-        /* Flowchart Box */
-        .flowchart {
+        /* Flowchart as visual boxes */
+        .flowchart-visual {
             background: #263238;
+            padding: 18px;
+            border-radius: 12px;
+            margin: 15px 0;
+        }
+        
+        .flow-step {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .flow-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .flow-number {
+            background: var(--primary-green);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 11px;
+            margin-right: 12px;
+            flex-shrink: 0;
+        }
+        
+        .flow-content {
+            flex: 1;
+        }
+        
+        .flow-title {
             color: #B2FF59;
-            padding: 25px;
-            border-radius: 14px;
-            font-family: 'Courier New', monospace;
-            font-size: 0.9rem;
-            overflow-x: auto;
-            margin: 20px 0;
+            font-weight: 700;
+            font-size: 11px;
+        }
+        
+        .flow-desc {
+            color: #90A4AE;
+            font-size: 10px;
+        }
+        
+        .flow-arrow {
+            color: var(--accent-orange);
+            font-size: 16px;
+            margin-left: 8px;
+        }
+        
+        /* Production chains as table */
+        .chain-table {
+            background: #263238;
+            border-radius: 12px;
+            padding: 15px;
+            margin: 12px 0;
+        }
+        
+        .chain-row {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #37474F;
+        }
+        
+        .chain-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .chain-name {
+            color: #B2FF59;
+            font-weight: 700;
+            font-size: 11px;
+            min-width: 100px;
+        }
+        
+        .chain-item {
+            background: #37474F;
+            color: #FFF;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            margin: 2px 4px;
+        }
+        
+        .chain-arrow {
+            color: var(--accent-orange);
+            margin: 0 4px;
+            font-size: 14px;
+        }
+        
+        .chain-result {
+            background: var(--accent-orange);
+            color: #FFF;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 10px;
+            font-weight: 700;
         }
         
         /* Highlight */
         .highlight {
             background: var(--accent-yellow);
-            padding: 2px 8px;
-            border-radius: 6px;
+            padding: 1px 6px;
+            border-radius: 4px;
             font-weight: 600;
         }
         
         /* Footer */
         .footer {
             text-align: center;
-            padding: 40px;
+            padding: 25px;
             color: var(--text-medium);
         }
         
         .footer img {
-            width: 80px;
-            border-radius: 12px;
-            margin-bottom: 15px;
+            width: 60px;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
         
-        /* Print Styles */
-        @media print {
-            .section {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-            
-            .cover {
-                page-break-after: always;
-            }
+        .footer p {
+            font-size: 10px;
         }
     </style>
 </head>
@@ -296,7 +429,7 @@
             </div>
             
             <table>
-                <tr><th style="width:35%">Element</th><th>Details</th></tr>
+                <tr><th style="width:30%">Element</th><th>Details</th></tr>
                 <tr><td><strong>Titel</strong></td><td>Farming Friends</td></tr>
                 <tr><td><strong>Genre</strong></td><td>Farming Simulation + Social Multiplayer</td></tr>
                 <tr><td><strong>Perspektive</strong></td><td>3D Third-Person (Roblox-Style Movement)</td></tr>
@@ -327,10 +460,10 @@
             <table>
                 <tr><th>Phase</th><th>Beschreibung</th><th>Level</th></tr>
                 <tr><td>🌱 Tutorial</td><td>Der alte Meister-Farmer lehrt dich die Grundlagen</td><td>1-5</td></tr>
-                <tr><td>🏆 Lokale Liga</td><td>Wettbewerbe gegen Nachbar-Farmen</td><td>5-15</td></tr>
-                <tr><td>🥈 Regionale Liga</td><td>Turniere im Hochtaunuskreis</td><td>15-30</td></tr>
-                <tr><td>🥇 Nationale Meisterschaft</td><td>Die besten Farmer Deutschlands</td><td>30-50</td></tr>
-                <tr><td>🌍 Welt-Meisterschaft</td><td>Globaler Wettbewerb um den Titel</td><td>50+</td></tr>
+                <tr><td>🏆 Lokal</td><td>Wettbewerbe gegen Nachbar-Farmen</td><td>5-15</td></tr>
+                <tr><td>🥈 Regional</td><td>Turniere im Hochtaunuskreis</td><td>15-30</td></tr>
+                <tr><td>🥇 National</td><td>Die besten Farmer Deutschlands</td><td>30-50</td></tr>
+                <tr><td>🌍 Welt</td><td>Globaler Wettbewerb um den Titel</td><td>50+</td></tr>
             </table>
             
             <div class="feature-box">
@@ -346,28 +479,48 @@
                 <h2>Core Gameplay Loop</h2>
             </div>
             
-            <div class="flowchart">
-┌─────────────────────────────────────────────────────┐
-│  1. ANBAUEN                                         │
-│     Felder anlegen → Samen pflanzen → Warten        │
-│                           ↓                         │
-│  2. ERNTEN                                          │
-│     Selbst oder Bots ernten → Rohstoffe sammeln     │
-│                           ↓                         │
-│  3. PRODUZIEREN                                     │
-│     Rohstoffe → Verarbeitung → Produkte             │
-│     (Weizen → Mehl → Brot)                          │
-│                           ↓                         │
-│  4. VERKAUFEN                                       │
-│     Warenhaus → NPC-Aufträge → Spieler-Handel       │
-│                           ↓                         │
-│  5. INVESTIEREN                                     │
-│     Geld → Bessere Tools → Größere Farm → Repeat!   │
-└─────────────────────────────────────────────────────┘
+            <div class="flowchart-visual">
+                <div class="flow-step">
+                    <div class="flow-number">1</div>
+                    <div class="flow-content">
+                        <span class="flow-title">ANBAUEN</span>
+                        <span class="flow-desc"> — Felder anlegen → Samen pflanzen → Warten</span>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-number">2</div>
+                    <div class="flow-content">
+                        <span class="flow-title">ERNTEN</span>
+                        <span class="flow-desc"> — Selbst oder Bots ernten → Rohstoffe sammeln</span>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-number">3</div>
+                    <div class="flow-content">
+                        <span class="flow-title">PRODUZIEREN</span>
+                        <span class="flow-desc"> — Rohstoffe → Verarbeitung → Produkte</span>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-number">4</div>
+                    <div class="flow-content">
+                        <span class="flow-title">VERKAUFEN</span>
+                        <span class="flow-desc"> — Warenhaus → NPC-Aufträge → Spieler-Handel</span>
+                    </div>
+                </div>
+                <div class="flow-step">
+                    <div class="flow-number">5</div>
+                    <div class="flow-content">
+                        <span class="flow-title">INVESTIEREN</span>
+                        <span class="flow-desc"> — Geld → Bessere Tools → Größere Farm → Repeat!</span>
+                    </div>
+                </div>
             </div>
             
-            <h3>Offline-Wachstum</h3>
-            <p>Pflanzen und Produktionen laufen auch weiter, wenn der Spieler offline ist. Beim nächsten Login wartet die Ernte!</p>
+            <div class="feature-box">
+                <h4>⏰ Offline-Wachstum</h4>
+                <p>Pflanzen und Produktionen laufen auch weiter, wenn der Spieler offline ist. Beim nächsten Login wartet die Ernte!</p>
+            </div>
         </div>
         
         <!-- 4. FARMING SYSTEM -->
@@ -379,35 +532,53 @@
             
             <h3>4.1 Pflanzen & Wachstum</h3>
             <table>
-                <tr><th>Pflanze</th><th>Wachstumszeit</th><th>Ertrag</th><th>Verkaufspreis</th><th>Level</th></tr>
-                <tr><td>🥕 Karotte</td><td>5 Min</td><td>3 Stück</td><td>10 Coins/Stk</td><td>1</td></tr>
-                <tr><td>🌾 Weizen</td><td>15 Min</td><td>5 Stück</td><td>8 Coins/Stk</td><td>1</td></tr>
-                <tr><td>🍅 Tomate</td><td>30 Min</td><td>4 Stück</td><td>15 Coins/Stk</td><td>5</td></tr>
-                <tr><td>🌽 Mais</td><td>1 Std</td><td>6 Stück</td><td>12 Coins/Stk</td><td>10</td></tr>
-                <tr><td>🍎 Apfelbaum</td><td>4 Std</td><td>10 Stück</td><td>25 Coins/Stk</td><td>15</td></tr>
+                <tr><th>Pflanze</th><th>Zeit</th><th>Ertrag</th><th>Preis</th><th>Lvl</th></tr>
+                <tr><td>🥕 Karotte</td><td>5 Min</td><td>3 Stk</td><td>10/Stk</td><td>1</td></tr>
+                <tr><td>🌾 Weizen</td><td>15 Min</td><td>5 Stk</td><td>8/Stk</td><td>1</td></tr>
+                <tr><td>🍅 Tomate</td><td>30 Min</td><td>4 Stk</td><td>15/Stk</td><td>5</td></tr>
+                <tr><td>🌽 Mais</td><td>1 Std</td><td>6 Stk</td><td>12/Stk</td><td>10</td></tr>
+                <tr><td>🍎 Apfel</td><td>4 Std</td><td>10 Stk</td><td>25/Stk</td><td>15</td></tr>
             </table>
             
             <h3>4.2 Tiere</h3>
             <table>
-                <tr><th>Tier</th><th>Produkt</th><th>Produktionszeit</th><th>Futter</th></tr>
+                <tr><th>Tier</th><th>Produkt</th><th>Zeit</th><th>Futter</th></tr>
                 <tr><td>🐔 Huhn</td><td>Eier</td><td>20 Min</td><td>Weizen</td></tr>
                 <tr><td>🐄 Kuh</td><td>Milch</td><td>1 Std</td><td>Mais</td></tr>
                 <tr><td>🐑 Schaf</td><td>Wolle</td><td>2 Std</td><td>Weizen</td></tr>
-                <tr><td>🐷 Schwein</td><td>Trüffel</td><td>4 Std</td><td>Karotten + Mais</td></tr>
+                <tr><td>🐷 Schwein</td><td>Trüffel</td><td>4 Std</td><td>Karotten+Mais</td></tr>
             </table>
             
             <h3>4.3 Produktionsketten</h3>
-            <div class="flowchart">
-BROT-KETTE:
-  Weizen (Feld) → [Mühle, 5 Min] → Mehl → [Bäckerei, 10 Min] → Brot 🍞
-
-KUCHEN-KETTE:
-  Weizen → Mehl ──┐
-  Huhn → Eier ────┼──→ [Bäckerei, 30 Min] → Kuchen 🎂
-  Kuh → Milch ────┘
-
-KÄSE-KETTE:
-  Kuh → Milch → [Molkerei, 45 Min] → Käse 🧀
+            <div class="chain-table">
+                <div class="chain-row">
+                    <span class="chain-name">🍞 BROT:</span>
+                    <span class="chain-item">Weizen</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-item">Mühle (5m)</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-item">Mehl</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-item">Bäckerei (10m)</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-result">Brot 🍞</span>
+                </div>
+                <div class="chain-row">
+                    <span class="chain-name">🎂 KUCHEN:</span>
+                    <span class="chain-item">Mehl + Eier + Milch</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-item">Bäckerei (30m)</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-result">Kuchen 🎂</span>
+                </div>
+                <div class="chain-row">
+                    <span class="chain-name">🧀 KÄSE:</span>
+                    <span class="chain-item">Milch</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-item">Molkerei (45m)</span>
+                    <span class="chain-arrow">→</span>
+                    <span class="chain-result">Käse 🧀</span>
+                </div>
             </div>
         </div>
         
@@ -418,19 +589,17 @@ KÄSE-KETTE:
                 <h2>Tool-Progression</h2>
             </div>
             
-            <p>Spieler starten mit einfachen Werkzeugen und können sich hocharbeiten:</p>
-            
             <table>
-                <tr><th>Tool</th><th>Feld-Größe</th><th>Dauer/Slot</th><th>Kosten</th><th>Level</th></tr>
-                <tr><td>🪥 Rechen</td><td>1×1</td><td>10 Sek</td><td>Starter</td><td>1</td></tr>
-                <tr><td>🪏 Schaufel</td><td>2×2</td><td>8 Sek</td><td>500 Coins</td><td>5</td></tr>
-                <tr><td>🔧 Kleiner Pflug</td><td>3×3</td><td>5 Sek</td><td>2.000 Coins</td><td>10</td></tr>
-                <tr><td>🚜 Traktor</td><td>5×5</td><td>2 Sek</td><td>10.000 Coins</td><td>20</td></tr>
-                <tr><td>🤖 Mega-Maschine</td><td>10×10</td><td>Instant</td><td>50.000 Coins</td><td>35</td></tr>
+                <tr><th>Tool</th><th>Größe</th><th>Dauer</th><th>Kosten</th><th>Lvl</th></tr>
+                <tr><td>🪥 Rechen</td><td>1×1</td><td>10s</td><td>Start</td><td>1</td></tr>
+                <tr><td>🪏 Schaufel</td><td>2×2</td><td>8s</td><td>500</td><td>5</td></tr>
+                <tr><td>🔧 Pflug</td><td>3×3</td><td>5s</td><td>2.000</td><td>10</td></tr>
+                <tr><td>🚜 Traktor</td><td>5×5</td><td>2s</td><td>10.000</td><td>20</td></tr>
+                <tr><td>🤖 Mega</td><td>10×10</td><td>Instant</td><td>50.000</td><td>35</td></tr>
             </table>
             
             <div class="feature-box">
-                <h4>Mechanik: Feld abstecken</h4>
+                <h4>📍 Mechanik: Feld abstecken</h4>
                 <p>Spieler markiert auf der Karte den gewünschten Bereich → Tool arbeitet automatisch → Feld ist bereit zur Bepflanzung.</p>
             </div>
         </div>
@@ -445,20 +614,18 @@ KÄSE-KETTE:
             <h3>6.1 Erntehelfer</h3>
             <table>
                 <tr><th>Bot</th><th>Aufgabe</th><th>Kapazität</th><th>Kosten</th></tr>
-                <tr><td>👨‍🌾 Farmer-Azubi</td><td>Erntet 1 Feld-Typ</td><td>10 Stk/Std</td><td>2.000 Coins</td></tr>
-                <tr><td>👩‍🌾 Erfahrener Helfer</td><td>Erntet 3 Feld-Typen</td><td>30 Stk/Std</td><td>8.000 Coins</td></tr>
-                <tr><td>🤖 Ernte-Roboter</td><td>Erntet alles</td><td>100 Stk/Std</td><td>25.000 Coins</td></tr>
+                <tr><td>👨‍🌾 Azubi</td><td>1 Feld-Typ</td><td>10/Std</td><td>2.000</td></tr>
+                <tr><td>👩‍🌾 Erfahren</td><td>3 Feld-Typen</td><td>30/Std</td><td>8.000</td></tr>
+                <tr><td>🤖 Roboter</td><td>Alles</td><td>100/Std</td><td>25.000</td></tr>
             </table>
             
             <h3>6.2 Produktionshelfer</h3>
             <table>
                 <tr><th>Bot</th><th>Aufgabe</th><th>Kosten</th></tr>
-                <tr><td>👨‍🍳 Müller-Gehilfe</td><td>Automatisch Mehl produzieren</td><td>5.000 Coins</td></tr>
-                <tr><td>👩‍🍳 Bäcker-Lehrling</td><td>Automatisch backen</td><td>10.000 Coins</td></tr>
-                <tr><td>🏭 Fabrik-Manager</td><td>Alle Produktionen steuern</td><td>50.000 Coins</td></tr>
+                <tr><td>👨‍🍳 Müller</td><td>Auto-Mehl</td><td>5.000</td></tr>
+                <tr><td>👩‍🍳 Bäcker</td><td>Auto-Backen</td><td>10.000</td></tr>
+                <tr><td>🏭 Manager</td><td>Alle Prod.</td><td>50.000</td></tr>
             </table>
-            
-            <p><strong>Aufgaben-Zuweisung:</strong> "Ernte Weizen und bring es zur Mühle" oder "Produziere Brot solange Mehl da ist"</p>
         </div>
         
         <!-- 7. HANDEL -->
@@ -470,22 +637,20 @@ KÄSE-KETTE:
             
             <h3>7.1 Warenhaus (Global Trading)</h3>
             <ul>
-                <li><strong>Angebote erstellen:</strong> "Verkaufe 50× Brot für 2.000 Coins"</li>
-                <li><strong>Anfragen stellen:</strong> "Suche 100× Weizen, biete 1.500 Coins"</li>
-                <li><strong>Sofort-Kauf:</strong> Andere Spieler-Angebote kaufen</li>
+                <li><strong>Angebote:</strong> "Verkaufe 50× Brot für 2.000 Coins"</li>
+                <li><strong>Anfragen:</strong> "Suche 100× Weizen, biete 1.500 Coins"</li>
+                <li><strong>Sofort-Kauf:</strong> Andere Spieler-Angebote</li>
                 <li><strong>Marktgebühr:</strong> 5%</li>
             </ul>
             
             <h3>7.2 NPC-Aufträge</h3>
-            <p>NPCs erscheinen regelmäßig mit zeitlimitierten Aufträgen:</p>
             <div class="feature-box">
                 <h4>👨‍🍳 Koch Klaus</h4>
-                <p>"Ich brauche 10× Brot und 5× Eier!"<br>
-                <strong>Belohnung:</strong> 500 Coins + 20 XP | <strong>Zeit:</strong> 2 Stunden</p>
+                <p>"Ich brauche 10× Brot und 5× Eier!" — Belohnung: 500 Coins + 20 XP | Zeit: 2h</p>
             </div>
             
             <h3>7.3 LKW-Lieferungen</h3>
-            <p>Regelmäßig kommt ein LKW mit Sammelaufträgen. Vollständige Lieferung = Bonus-Belohnung!</p>
+            <p>Regelmäßig kommt ein LKW mit Sammelaufträgen. Vollständige Lieferung = Bonus!</p>
         </div>
         
         <!-- 8. MULTIPLAYER -->
@@ -498,25 +663,22 @@ KÄSE-KETTE:
             <h3>8.1 Freunde-System</h3>
             <table>
                 <tr><th>Feature</th><th>Beschreibung</th></tr>
-                <tr><td>🏠 Farm besuchen</td><td>Freundes-Farm in Echtzeit betreten</td></tr>
-                <tr><td>💧 Helfen</td><td>Pflanzen gießen → 10% schnelleres Wachstum</td></tr>
-                <tr><td>🌾 Ernten helfen</td><td>Beide bekommen kleine Belohnung</td></tr>
-                <tr><td>🎁 Geschenke</td><td>1× täglich Geschenk senden</td></tr>
+                <tr><td>🏠 Besuchen</td><td>Freundes-Farm in Echtzeit betreten</td></tr>
+                <tr><td>💧 Helfen</td><td>Gießen → 10% schneller</td></tr>
+                <tr><td>🌾 Ernten</td><td>Beide bekommen Belohnung</td></tr>
+                <tr><td>🎁 Geschenke</td><td>1× täglich senden</td></tr>
                 <tr><td>💬 Chat</td><td>In-Game Chat & Emotes</td></tr>
             </table>
             
             <h3>8.2 Welt-System</h3>
-            <p>Jeder Spieler hat seine eigene Welt mit erweiterbaren Inseln:</p>
             <table>
-                <tr><th>Insel</th><th>Freischaltung</th><th>Besonderheit</th></tr>
-                <tr><td>🏡 Heimat-Farm</td><td>Start</td><td>Basis, Felder, Scheune</td></tr>
-                <tr><td>🌊 Fluss-Auen</td><td>Level 10</td><td>Fischerei, Wasserfrüchte</td></tr>
-                <tr><td>🌲 Wald-Lichtung</td><td>Level 15</td><td>Obstbäume, Bienen, Pilze</td></tr>
-                <tr><td>🏔️ Berg-Weide</td><td>Level 25</td><td>Schafe, Ziegen, Kräuter</td></tr>
-                <tr><td>🏝️ Tropen-Insel</td><td>Level 40</td><td>Exotische Früchte</td></tr>
+                <tr><th>Insel</th><th>Level</th><th>Besonderheit</th></tr>
+                <tr><td>🏡 Heimat</td><td>Start</td><td>Basis, Felder, Scheune</td></tr>
+                <tr><td>🌊 Fluss</td><td>10</td><td>Fischerei, Wasserfrüchte</td></tr>
+                <tr><td>🌲 Wald</td><td>15</td><td>Obstbäume, Bienen</td></tr>
+                <tr><td>🏔️ Berg</td><td>25</td><td>Schafe, Kräuter</td></tr>
+                <tr><td>🏝️ Tropen</td><td>40</td><td>Exotische Früchte</td></tr>
             </table>
-            
-            <p><strong>Teleport:</strong> Spieler können sich gegenseitig per Weltkarte besuchen.</p>
         </div>
         
         <!-- 9. MONETARISIERUNG -->
@@ -529,16 +691,16 @@ KÄSE-KETTE:
             <h3>9.1 Goldtaler (Premium-Währung)</h3>
             <table>
                 <tr><th>Paket</th><th>Goldtaler</th><th>Preis</th></tr>
-                <tr><td>Starter</td><td>100</td><td>0,99 €</td></tr>
-                <tr><td>Medium</td><td>500</td><td>3,99 €</td></tr>
-                <tr><td>Groß</td><td>1.200</td><td>7,99 €</td></tr>
-                <tr><td>Mega</td><td>3.000</td><td>17,99 €</td></tr>
+                <tr><td>Starter</td><td>100</td><td>0,99€</td></tr>
+                <tr><td>Medium</td><td>500</td><td>3,99€</td></tr>
+                <tr><td>Groß</td><td>1.200</td><td>7,99€</td></tr>
+                <tr><td>Mega</td><td>3.000</td><td>17,99€</td></tr>
             </table>
             
-            <h3>9.2 Goldtaler ausgeben für:</h3>
+            <h3>9.2 Ausgeben für:</h3>
             <ul>
-                <li>⏩ Wartezeit überspringen (1-50 Goldtaler)</li>
-                <li>🌱 Premium-Samen kaufen</li>
+                <li>⏩ Wartezeit überspringen (1-50 GT)</li>
+                <li>🌱 Premium-Samen</li>
                 <li>🏗️ Sofort-Bau</li>
                 <li>🤖 Spezial-Bots</li>
                 <li>👕 Kosmetik (Skins, Deko)</li>
@@ -547,13 +709,12 @@ KÄSE-KETTE:
             <h3>9.3 Werbung als Alternative</h3>
             <table>
                 <tr><th>Aktion</th><th>Belohnung</th></tr>
-                <tr><td>📺 Video schauen</td><td>5 Goldtaler ODER 30 Min überspringen</td></tr>
-                <tr><td>🎁 Rewarded Ad nach Ernte</td><td>+50% Ertrag</td></tr>
-                <tr><td>📦 Tägliche Bonus-Ad</td><td>Gratis Premium-Kiste</td></tr>
+                <tr><td>📺 Video</td><td>5 GT oder 30 Min skip</td></tr>
+                <tr><td>🎁 Nach Ernte</td><td>+50% Ertrag</td></tr>
+                <tr><td>📦 Täglich</td><td>Premium-Kiste</td></tr>
             </table>
             
-            <h3>9.4 Season Pass (optional)</h3>
-            <p><strong>4,99 €/Monat:</strong> Extra Belohnungen, exklusive Skins, keine Werbung</p>
+            <p><strong>Season Pass (4,99€/Monat):</strong> Extra Belohnungen, exklusive Skins, keine Werbung</p>
         </div>
         
         <!-- 10. CHARAKTERE -->
@@ -563,15 +724,15 @@ KÄSE-KETTE:
                 <h2>Spielbare Charaktere</h2>
             </div>
             
-            <p>5 diverse Starter-Avatare zur Auswahl (später Customization freischaltbar):</p>
+            <p>5 diverse Starter-Avatare (später Customization):</p>
             
             <table>
-                <tr><th>Avatar</th><th>Name</th><th>Beschreibung</th><th>Persönlichkeit</th></tr>
-                <tr><td>🧑🏼‍🌾</td><td><strong>Finn</strong></td><td>Blond, Strohhut, blaue Augen</td><td>Abenteuerlustig</td></tr>
-                <tr><td>👩🏻‍🌾</td><td><strong>Mia</strong></td><td>Rote Zöpfe, Sommersprossen</td><td>Fleißig & fröhlich</td></tr>
-                <tr><td>🧑🏿‍🌾</td><td><strong>Jayden</strong></td><td>Afro, blaue Latzhose</td><td>Cool & entspannt</td></tr>
-                <tr><td>👩🏿‍🌾</td><td><strong>Zara</strong></td><td>Braids, Blumenkranz</td><td>Naturverbunden & clever</td></tr>
-                <tr><td>🧑🏻‍🌾</td><td><strong>Sam</strong></td><td>Grüne Cap, gender-neutral</td><td>Tollpatschig & lustig</td></tr>
+                <tr><th>Name</th><th>Beschreibung</th><th>Persönlichkeit</th></tr>
+                <tr><td><strong>Finn</strong></td><td>Blond, Strohhut</td><td>Abenteuerlustig</td></tr>
+                <tr><td><strong>Mia</strong></td><td>Rote Zöpfe</td><td>Fleißig & fröhlich</td></tr>
+                <tr><td><strong>Jayden</strong></td><td>Afro, Latzhose</td><td>Cool & entspannt</td></tr>
+                <tr><td><strong>Zara</strong></td><td>Braids, Blumenkranz</td><td>Naturverbunden</td></tr>
+                <tr><td><strong>Sam</strong></td><td>Cap, neutral</td><td>Tollpatschig</td></tr>
             </table>
         </div>
         
@@ -582,8 +743,8 @@ KÄSE-KETTE:
                 <h2>Concept Art</h2>
             </div>
             
-            <h3>11.1 Charaktere (Hay Day Style)</h3>
-            <div class="gallery">
+            <h3>Charaktere</h3>
+            <div class="gallery gallery-5">
                 <div class="gallery-item">
                     <img src="assets/finn.jpg" alt="Finn">
                     <div class="caption">Finn</div>
@@ -606,31 +767,30 @@ KÄSE-KETTE:
                 </div>
             </div>
             
-            <h3>11.2 Umgebung & Assets (3D Low-Poly)</h3>
+            <h3>Umgebung & Assets</h3>
             <div class="gallery">
                 <div class="gallery-item">
-                    <img src="assets/farm.jpg" alt="Farm Environment">
+                    <img src="assets/farm.jpg" alt="Farm">
                     <div class="caption">Starter-Farm</div>
                 </div>
                 <div class="gallery-item">
                     <img src="assets/sprouty.jpg" alt="Sprouty">
-                    <div class="caption">Sprouty (Maskottchen)</div>
+                    <div class="caption">Sprouty</div>
                 </div>
                 <div class="gallery-item">
                     <img src="assets/animals.jpg" alt="Animals">
-                    <div class="caption">Farm-Tiere</div>
+                    <div class="caption">Tiere</div>
                 </div>
             </div>
             
-            <h3>11.3 Gebäude & Crops</h3>
-            <div class="gallery">
+            <div class="gallery" style="grid-template-columns: repeat(2, 1fr);">
                 <div class="gallery-item">
                     <img src="assets/buildings.jpg" alt="Buildings">
                     <div class="caption">Gebäude</div>
                 </div>
                 <div class="gallery-item">
                     <img src="assets/crops.jpg" alt="Crops">
-                    <div class="caption">Pflanzen & Crops</div>
+                    <div class="caption">Pflanzen</div>
                 </div>
             </div>
         </div>
@@ -639,52 +799,36 @@ KÄSE-KETTE:
         <div class="section">
             <div class="section-header">
                 <div class="section-number">12</div>
-                <h2>Technische Anforderungen</h2>
+                <h2>Technik & Roadmap</h2>
             </div>
             
+            <h3>Tech Stack</h3>
             <table>
                 <tr><th>Komponente</th><th>Technologie</th></tr>
                 <tr><td>Game Engine</td><td>Unity 2022 LTS</td></tr>
-                <tr><td>Backend / Datenbank</td><td>Supabase oder Firebase</td></tr>
-                <tr><td>Echtzeit-Sync</td><td>WebSockets / Supabase Realtime</td></tr>
-                <tr><td>Authentication</td><td>Apple Sign-In, Google, E-Mail</td></tr>
-                <tr><td>Cloud-Save</td><td>Automatisch</td></tr>
+                <tr><td>Backend</td><td>Supabase / Firebase</td></tr>
+                <tr><td>Realtime</td><td>WebSockets</td></tr>
+                <tr><td>Auth</td><td>Apple, Google, E-Mail</td></tr>
                 <tr><td>Monetarisierung</td><td>RevenueCat + AdMob</td></tr>
             </table>
             
-            <h3>Offline-Modus</h3>
-            <ul>
-                <li>Pflanzen wachsen (Timer-basiert)</li>
-                <li>Sync beim nächsten Online-Gehen</li>
-                <li>Keine Multiplayer-Features offline</li>
-            </ul>
-        </div>
-        
-        <!-- 13. ROADMAP -->
-        <div class="section">
-            <div class="section-header">
-                <div class="section-number">13</div>
-                <h2>Development Roadmap</h2>
-            </div>
-            
+            <h3>Development Roadmap</h3>
             <table>
                 <tr><th>Phase</th><th>Fokus</th><th>Dauer</th></tr>
-                <tr><td><strong>Phase 1</strong></td><td>Prototyp: Laufen, 1 Pflanze anbauen, Offline-Wachstum</td><td>4-6 Wochen</td></tr>
-                <tr><td><strong>Phase 2</strong></td><td>Wirtschaft: Mehrere Pflanzen, Tools, Produktionsketten</td><td>6-8 Wochen</td></tr>
-                <tr><td><strong>Phase 3</strong></td><td>Social: User-Accounts, Freunde, Farmen besuchen</td><td>6-8 Wochen</td></tr>
-                <tr><td><strong>Phase 4</strong></td><td>Monetarisierung: IAP, Werbung, Season Pass</td><td>4 Wochen</td></tr>
-                <tr><td><strong>Phase 5</strong></td><td>Polish & Launch: Testing, Bugfixes, App Store</td><td>4 Wochen</td></tr>
+                <tr><td>1</td><td>Prototyp: Laufen, Pflanzen, Offline</td><td>4-6 Wo</td></tr>
+                <tr><td>2</td><td>Wirtschaft: Tools, Produktion</td><td>6-8 Wo</td></tr>
+                <tr><td>3</td><td>Social: Accounts, Freunde</td><td>6-8 Wo</td></tr>
+                <tr><td>4</td><td>Monetarisierung</td><td>4 Wo</td></tr>
+                <tr><td>5</td><td>Polish & Launch</td><td>4 Wo</td></tr>
             </table>
             
-            <p><strong>Geschätzte Gesamtdauer:</strong> 6-9 Monate</p>
+            <p><strong>Geschätzte Gesamtdauer: 6-9 Monate</strong></p>
         </div>
         
         <!-- FOOTER -->
         <div class="footer">
             <img src="assets/logo.jpg" alt="Farming Friends">
-            <p><strong>Farming Friends</strong><br>
-            Game Design Document v1.0<br>
-            © 2026 — Alle Rechte vorbehalten</p>
+            <p><strong>Farming Friends</strong> — Game Design Document v1.0<br>© 2026</p>
         </div>
         
     </div>
